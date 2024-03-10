@@ -10,21 +10,22 @@ print("Do you want to play this quiz", name,"?")
 play=input("yes or no?\n")
 if play=="no":
     exit()
-while play=="yes":
+while play=="yes": #Uses a while loop incase the user would like to play again
     print("Okay, let's start!")
 #print corresponding questions and checking the user input if their are correct
     for x in dictionary1:
         user=input(x)
+        user=user.lower()
         if user==dictionary1[x]:
             print("Correct!")
             score+=1
         else:
-            print("Wrong, the correct answer was ",dictionary1[x])
-    print("That was the end of the quiz! Your final score was",score,"!")
+            print("Wrong, the correct answer was ",dictionary1[x]) 
+    print("That was the end of the quiz! Your final score was",score,"!") #End of quiz, print their score and determine whether they passed or failed
     if int(score) >= 3:
         print("You pass The Hobbit Quiz!")
     if int(score) < 3:
         print("You failed the Hobbit Quiz")
-    play=input("Would you want to try The Hobbit Quiz again? (yes or no?)\n")
+    play=input("Would you want to try The Hobbit Quiz again? (yes or no?)\n") 
     if play=="no":
         print("Thank you for playing")
