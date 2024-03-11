@@ -15,17 +15,34 @@ while play=="yes": #Uses a while loop incase the user would like to play again
 #print corresponding questions and checking the user input if their are correct
     for x in dictionary1:
         user=input(x)
-        user=user.lower()
+        #removes any spaces in between answers and any capitilised answer will be converted to lower case
+        user=user.lower().strip()    
         if user==dictionary1[x]:
             print("Correct!")
             score+=1
+            #If answer is a integer specialised message
+        elif user.isdigit():
+            print("Integers can't be used!")
         else:
             print("Wrong, the correct answer was ",dictionary1[x]) 
     print("That was the end of the quiz! Your final score was",score,"!") #End of quiz, print their score and determine whether they passed or failed
+    #Specialised message for individual scores
     if int(score) >= 3:
         print("You pass The Hobbit Quiz!")
     if int(score) < 3:
         print("You failed the Hobbit Quiz")
+    if int(score) == 0:
+        print("You clearly haven't watched the movie")
+        url=input("Do you want the watch the movie (y,n)\n")
+        if url=="y":
+            print("https://www.youtube.com/watch?v=SDnYMbYB-nU&ab_channel=WarnerBros.Pictures")
+        else:
+            url=="n"
+            print("Why you play my quiz?")
+            exit()
+    if int(score) == 5:
+        print("Amazing! You are a Hobbit Master")
+        #Ask user if they would want to play again
     play=input("Would you want to try The Hobbit Quiz again? (yes or no?)\n") 
     if play=="no":
         print("Thank you for playing")
