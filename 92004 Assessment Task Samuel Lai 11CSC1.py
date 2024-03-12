@@ -7,14 +7,19 @@ print("Welcome to the Hobbit quiz!")
 name=input("What's your name?\n")
 print("Do you want to play this quiz", name,"?")
 #beggining of the quiz
-play=input("yes or no?\n")
+play=input("yes or no?\n").lower().strip()
 if play=="no":
     exit()
 while play=="yes": #Uses a while loop incase the user would like to play again
     print("Okay, let's start!")
 #print corresponding questions and checking the user input if their are correct
+    acceptable=["a","b","c","d"]
     for x in dictionary1:
         user=input(x)
+        #if their answer is not (a,b,c,d) question is printed again and gives them the opportunity to retry
+        while user not in acceptable:
+            print("Invalid answer, please try again")
+            user=input(x)
         #removes any spaces in between answers and any capitilised answer will be converted to lower case
         user=user.lower().strip()    
         if user==dictionary1[x]:
@@ -43,6 +48,6 @@ while play=="yes": #Uses a while loop incase the user would like to play again
     if int(score) == 5:
         print("Amazing! You are a Hobbit Master")
         #Ask user if they would want to play again
-    play=input("Would you want to try The Hobbit Quiz again? (yes or no?)\n") 
+    play=input("Would you want to try The Hobbit Quiz again? (yes or no?)\n").lower().strip()
     if play=="no":
         print("Thank you for playing")
