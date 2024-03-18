@@ -1,7 +1,7 @@
 #create a score function
 score=0
 #Any yes answers will be accepted when asking user if they want to play again
-yes_answers=["yes","y","ok","sure","k","alright","alr","of course","absolutely"]
+yes_answers=["yes","ye","y","ok","sure","k","alright","alr","of course","absolutely"]
 #Any no answers will be accepted when asking user if they want to play again
 no_answers=["no","n","nah","no thanks"]
 #dictionary function stores quesitons and answers
@@ -12,9 +12,9 @@ name=input("What's your name?\n")
 print("Do you want to play this quiz", name,"?")
 #beggining of the quiz
 play=input("yes or no?\n").lower().strip()
-if play not in no_answers and play not in yes_answers:
+while play not in no_answers and play not in yes_answers:
     play=input("Please put in an valid answer\n").lower().strip() 
-elif play in no_answers:
+if play in no_answers:
     print("Goodbye")
 while play in yes_answers: #Uses a while loop incase the user would like to play again
     print("Okay, let's start!")
@@ -44,12 +44,14 @@ while play in yes_answers: #Uses a while loop incase the user would like to play
         print("You failed the Hobbit Quiz")
     if int(score) == 0:
         print("You clearly haven't watched the movie")
-        url=input("Do you want the watch the movie (y,n)\n")
-        if url=="y":
+        url=input("Do you want to watch the movie (y,n)\n")
+        while url not in yes_answers and url not in no_answers:
+            url=input("Please put in an valid answer\n").lower().strip()
+        if url in yes_answers:
             print("https://www.youtube.com/watch?v=SDnYMbYB-nU&ab_channel=WarnerBros.Pictures")
         else:
-            url=="n"
-            print("Why you play my quiz?")
+            url in no_answers
+            print("Goodbye")
             exit()
     if int(score) == 5:
         print("Amazing! You are a Hobbit Master")
