@@ -16,8 +16,8 @@ def score1():
             url=input("Please put in an valid answer\n").lower().strip()
         if url in yes_answers: #if answer is in yes_answers prints a youtube trailer link
             print("https://www.youtube.com/watch?v=SDnYMbYB-nU&ab_channel=WarnerBros.Pictures")
-        else: #if their answer is in no_answer print goodbye to console and exits
-            url in no_answers 
+            #if their answer is in no_answer print goodbye to console and exits
+        if url in no_answers:
             print("Goodbye")
             exit()
     if int(score) == 5: #if answer is all correct 
