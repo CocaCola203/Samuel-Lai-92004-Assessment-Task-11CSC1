@@ -48,7 +48,6 @@ while play in yes_answers: #Uses a while loop incase the user would like to play
     #stores list of answers that are only acceptable
     acceptable=["a","b","c","d"]
     for x in dictionary1:
-        print("Type a, b, c, d")
         user=input(x)
         #if their answer is not (a,b,c,d) question is printed again and gives them the opportunity to retry
         while user not in acceptable: #uses a while loop until they type in a valid that is in acceptable list
@@ -57,7 +56,7 @@ while play in yes_answers: #Uses a while loop incase the user would like to play
             elif user=="":
                 print("You entered a blank space")
             elif user not in acceptable:
-                print("Invalid answer, please try again")
+                print("Invalid answer, please type only a, b, c, d")
             user=input(x)
         #removes any spaces in between answers and any capitilised answer will be converted to lower case
         user=user.lower().strip()    
