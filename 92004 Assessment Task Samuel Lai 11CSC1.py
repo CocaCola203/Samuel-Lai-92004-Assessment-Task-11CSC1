@@ -14,7 +14,7 @@ def score1():
         url=input("Do you want to watch the movie (y,n)\n")
         while url not in yes_answers and url not in no_answers:
             url=input("Please put in an valid answer\n").lower().strip()
-        if url in yes_answers: #if answer is in yes_answers prints a youtube trailer link
+        if url in yes_answers:
             print("https://www.youtube.com/watch?v=SDnYMbYB-nU&ab_channel=WarnerBros.Pictures")
             #if their answer is in no_answer print goodbye to console and exits
         if url in no_answers:
@@ -54,7 +54,7 @@ while play in yes_answers: #Uses a while loop incase the user would like to play
             if user.isdigit():
                 print("Integers can't be used!")
             elif user=="":
-                print("You entered a blank space")
+                print("Blank space not accepted")
             elif user not in acceptable:
                 print("Invalid answer, please type only a, b, c, d")
             user=input(x)
@@ -63,7 +63,6 @@ while play in yes_answers: #Uses a while loop incase the user would like to play
         if user==dictionary1[x]: #if their value is matching the key in the dictionary, 1 score is added to collection and prints correct
             print("Correct!")
             score+=1
-            #If answer is a integer specialised message, not able to use intergers in answers
         else:
             print("Wrong, the correct answer was ",dictionary1[x]) #if their value was not matching the key in the dictionary, it would state the value for the key(question)
     print("That was the end of the quiz! Your final score was",score,"!") #End of quiz, print their score and determine whether they passed or failed
