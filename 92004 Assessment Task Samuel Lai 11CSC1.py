@@ -19,7 +19,6 @@ def score1():
             #if their answer is in no_answer print goodbye to console and exits
         if url in no_answers:
             print("Goodbye")
-            exit()
     if int(score) == 5: #if answer is all correct 
         print("Amazing! You are a Hobbit Master")
 #dictionary function stores quesitons and answers
@@ -49,17 +48,17 @@ while play in yes_answers: #Uses a while loop incase the user would like to play
     acceptable=["a","b","c","d"]
     for x in dictionary1:
         user=input(x)
+        #removes any spaces in between answers and any capitilised answer will be converted to lower case
+        user=user.lower().strip()  
         #if their answer is not (a,b,c,d) question is printed again and gives them the opportunity to retry
         while user not in acceptable: #uses a while loop until they type in a valid that is in acceptable list
             if user.isdigit():
-                print("Integers can't be used!")
+                print("Integers can't be used! Try again")
             elif user=="":
-                print("Blank space not accepted")
+                print("Blank space not accepted! Try again")
             elif user not in acceptable:
-                print("Invalid answer, please type only a, b, c, d")
-            user=input(x)
-        #removes any spaces in between answers and any capitilised answer will be converted to lower case
-        user=user.lower().strip()    
+                print("Invalid answer, please type only a, b, c, d! Try again")
+            user=input(x)  
         if user==dictionary1[x]: #if their value is matching the key in the dictionary, 1 score is added to collection and prints correct
             print("Correct!")
             score+=1
